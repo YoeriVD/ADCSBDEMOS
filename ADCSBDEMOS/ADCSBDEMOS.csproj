@@ -47,6 +47,7 @@
     <Compile Include="Chapter 1\AutoProperties.cs" />
     <Compile Include="Chapter 1\ExtensionMethods.cs" />
     <Compile Include="Chapter 1\Initializers.cs" />
+    <Compile Include="Chapter 1\LambdaExpressions.cs" />
     <Compile Include="Chapter 1\PartialMethods.cs" />
     <Compile Include="Chapter 1\IRepeater.cs" />
     <Compile Include="Program.cs" />
@@ -68,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Chapter 2\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
