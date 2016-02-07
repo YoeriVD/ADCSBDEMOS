@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace ADCSBDEMOS.Chapter_1
 {
-    public class ChapterOne
+    public class PartialMethods
     {
 
         private readonly IEnumerable<IRepeater> _repeaters;
 
-        public ChapterOne()
+        public PartialMethods()
         {
             var repeaters = new List<IRepeater>();
             repeaters.Add(new SomeGeneratedClass0());
@@ -19,7 +19,7 @@ namespace ADCSBDEMOS.Chapter_1
             _repeaters = repeaters;
         }
 
-        public void PartialMethodsDemo()
+        public void Run()
         {
             var count = 1;
             foreach (var repeater in _repeaters)

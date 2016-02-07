@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chapter 1\ChapterOne.cs" />
+    <Compile Include="Chapter 1\PartialMethods.cs" />
     <Compile Include="Chapter 1\IRepeater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
