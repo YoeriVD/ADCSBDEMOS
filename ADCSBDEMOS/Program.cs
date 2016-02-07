@@ -1,4 +1,6 @@
 ﻿using System;
+using ADCSBDEMOS.Chapter_1;
+using ADCSBDEMOS.Chapter_2;
 
 namespace ADCSBDEMOS
 {
@@ -6,9 +8,16 @@ namespace ADCSBDEMOS
     {
         private static void Main(string[] args)
         {
-            #region chapter 1
+            ChapterOne();
+            ChapterTwo();
+            Console.ReadKey();
+        }
 
-            //new PartialMethods().Run();
+     
+
+        private static void ChapterOne()
+        {
+           //new PartialMethods().Run();
 
             //new Initializers().Run();
 
@@ -16,13 +25,14 @@ namespace ADCSBDEMOS
 
             //new AutoProperties().Run();
 
-            // new ExtensionMethods().Run();
+            //new ExtensionMethods().Run();
 
             //new LambdaExpressions().Run();
-
-            #endregion
-
-            Console.ReadKey();
+            
+        }
+        private static void ChapterTwo()
+        {
+            //new LinqDemos().Run();
         }
     }
 }
