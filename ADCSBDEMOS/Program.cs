@@ -7,7 +7,10 @@ namespace ADCSBDEMOS
     {
         private static void Main(string[] args)
         {
-            new PartialMethods().Run();
+
+            //new PartialMethods().Run();
+
+            new Initializers().Run();
 
 
             Console.ReadKey();
