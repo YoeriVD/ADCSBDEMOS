@@ -1,6 +1,7 @@
 ﻿using System;
 using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
+using ADCSBDEMOS.Chapter_3;
 
 namespace ADCSBDEMOS
 {
@@ -10,10 +11,12 @@ namespace ADCSBDEMOS
         {
             ChapterOne();
             ChapterTwo();
+            ChapterThree();
             Console.ReadKey();
         }
 
-     
+
+
 
         private static void ChapterOne()
         {
@@ -30,9 +33,15 @@ namespace ADCSBDEMOS
             //new LambdaExpressions().Run();
             
         }
+
         private static void ChapterTwo()
         {
             //new LinqDemos().Run();
+        }
+
+        private static void ChapterThree()
+        {
+            new Parameters().Run();
         }
     }
 }
