@@ -12,7 +12,9 @@ namespace ADCSBDEMOS
 
             //new Initializers().Run();
 
-            new AnomnymousObjects().Run();
+            //new AnomnymousObjects().Run();
+
+            new AutoProperties().Run();
 
             Console.ReadKey();
         }
