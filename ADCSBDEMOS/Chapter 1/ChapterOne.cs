@@ -19,7 +19,7 @@ namespace ADCSBDEMOS.Chapter_1
             _repeaters = repeaters;
         }
 
-        public void Run()
+        public void PartialMethodsDemo()
         {
             var count = 1;
             foreach (var repeater in _repeaters)

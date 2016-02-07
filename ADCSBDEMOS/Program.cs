@@ -7,7 +7,7 @@ namespace ADCSBDEMOS
     {
         private static void Main(string[] args)
         {
-            new ChapterOne().Run();
+            new ChapterOne().PartialMethodsDemo();
 
 
             Console.ReadKey();
