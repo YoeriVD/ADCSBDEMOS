@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ADCSBDEMOS.Chapter_1;
 
 namespace ADCSBDEMOS
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            new ChapterOne().Run();
+
+
+            Console.ReadKey();
         }
     }
 }

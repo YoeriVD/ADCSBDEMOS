@@ -1,0 +1,34 @@
+﻿<#@ template language="C#" #>
+
+using System;
+using System.Text;
+
+<# for (var iter = 0; iter < 5; iter++)
+{ #>
+
+namespace ADCSBDEMOS.Chapter_1
+{
+  /// <summary>
+  /// The code in this class uses a for loop to generate multiple lines of code.
+  /// </summary>
+  public partial class <#= "SomeGeneratedClass" + iter #> : IRepeater
+  {
+    public void Repeat()
+    {
+<# var count = 1500; //note that the property is emited strong-typed
+    for (var i = 0; i < count; i++)
+    { #>
+      PreRepeat();
+	  Console.WriteLine("Hello iteration: " + <#= i #>);
+	  PostRepeat();
+	  
+<# } #>
+	  
+    }
+
+	partial void PreRepeat();
+	partial void PostRepeat();
+  }
+}
+
+<# } #> 
