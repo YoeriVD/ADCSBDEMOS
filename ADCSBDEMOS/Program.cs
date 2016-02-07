@@ -10,8 +10,9 @@ namespace ADCSBDEMOS
 
             //new PartialMethods().Run();
 
-            new Initializers().Run();
+            //new Initializers().Run();
 
+            new AnomnymousObjects().Run();
 
             Console.ReadKey();
         }

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chapter 1\AnonymousObjects.cs" />
     <Compile Include="Chapter 1\Initializers.cs" />
     <Compile Include="Chapter 1\PartialMethods.cs" />
     <Compile Include="Chapter 1\IRepeater.cs" />
