@@ -49,7 +49,8 @@ namespace demos
         {
             //new TaskParallelLibraryDemos().Run();
             //new Plinq().Run();
-
+            //new ConcurrentDataClasses().Run();
+            new SyncPrimitives().Run();
         }
     }
 }

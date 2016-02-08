@@ -64,6 +64,7 @@
     <Compile Include="Chapter 4\DynamicDemos.cs" />
     <Compile Include="Chapter 5\ConcurrentDataClasses.cs" />
     <Compile Include="Chapter 5\Plinq.cs" />
+    <Compile Include="Chapter 5\SyncPrimitives.cs" />
     <Compile Include="Chapter 5\TaskParallelLibraryDemos.cs" />
     <Compile Include="Objects\Car.cs" />
     <Compile Include="Objects\IRepeater.cs" />
