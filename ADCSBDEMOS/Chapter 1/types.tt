@@ -2,6 +2,7 @@
 
 using System;
 using System.Text;
+using ADCSBDEMOS.Objects;
 
 <# for (var iter = 0; iter < 5; iter++)
 { #>
@@ -15,11 +16,11 @@ namespace ADCSBDEMOS.Chapter_1
   {
     public void Repeat()
     {
-<# var count = 1500; //note that the property is emited strong-typed
+<# var count = 15; //note that the property is emited strong-typed
     for (var i = 0; i < count; i++)
     { #>
       PreRepeat();
-	  Console.WriteLine("Hello iteration: " + <#= i #>);
+	  Console.WriteLine("Hello some iteration: " + <#= i #>);
 	  PostRepeat();
 	  
 <# } #>

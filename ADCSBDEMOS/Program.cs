@@ -1,47 +1,34 @@
 ﻿using System;
-using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
-using ADCSBDEMOS.Chapter_3;
 
-namespace ADCSBDEMOS
+namespace demos
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
-            ChapterOne();
-            ChapterTwo();
-            ChapterThree();
+            Chapter1();
+            Chapter2();
+
             Console.ReadKey();
         }
 
-
-
-
-        private static void ChapterOne()
+        private static void Chapter1()
         {
-           //new PartialMethods().Run();
+            //new PartialMethods().Run();
 
             //new Initializers().Run();
 
-            //new AnomnymousObjects().Run();
-
-            //new AutoProperties().Run();
+            //new AnonymousTypes().Run();
 
             //new ExtensionMethods().Run();
 
-            //new LambdaExpressions().Run();
-            
+            //new LambdaDemo().Run();
         }
 
-        private static void ChapterTwo()
+        private static void Chapter2()
         {
-            //new LinqDemos().Run();
-        }
-
-        private static void ChapterThree()
-        {
-            new Parameters().Run();
+            new LinqDemos().Run();
         }
     }
 }

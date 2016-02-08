@@ -43,38 +43,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chapter 1\AnonymousObjects.cs" />
-    <Compile Include="Chapter 1\AutoProperties.cs" />
+    <Compile Include="Chapter 1\AnonymousTypes.cs" />
     <Compile Include="Chapter 1\ExtensionMethods.cs" />
+    <Compile Include="Chapter 1\ICanShout.cs" />
     <Compile Include="Chapter 1\Initializers.cs" />
-    <Compile Include="Chapter 1\LambdaExpressions.cs" />
+    <Compile Include="Chapter 1\LambdaDemo.cs" />
     <Compile Include="Chapter 1\PartialMethods.cs" />
-    <Compile Include="Chapter 1\IRepeater.cs" />
-    <Compile Include="Chapter 2\Data.cs" />
-    <Compile Include="Chapter 2\Extensions.cs" />
-    <Compile Include="Chapter 2\LinqDemos.cs" />
-    <Compile Include="Chapter 3\Parameters.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Chapter 1\test.cs">
+    <Compile Include="Chapter 1\ShoutExtensions.cs" />
+    <Compile Include="Chapter 1\SomeGeneratedClass.validation.cs" />
+    <Compile Include="Chapter 1\SomeGeneratedClass3.cs" />
+    <Compile Include="Chapter 1\types1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test.tt</DependentUpon>
+      <DependentUpon>types.tt</DependentUpon>
     </Compile>
+    <Compile Include="Chapter 2\Data.cs" />
+    <Compile Include="Chapter 2\LinqDemos.cs" />
+    <Compile Include="Objects\Car.cs" />
+    <Compile Include="Objects\IRepeater.cs" />
+    <Compile Include="Objects\Person.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Chapter 1\test.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>test.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Chapter 3\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Chapter 1\types.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>types1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

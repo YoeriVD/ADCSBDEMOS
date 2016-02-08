@@ -1,4 +1,4 @@
-﻿namespace ADCSBDEMOS.Chapter_1
+﻿namespace ADCSBDEMOS.Objects
 {
     interface IRepeater
     {
