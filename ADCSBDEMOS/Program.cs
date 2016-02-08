@@ -2,6 +2,7 @@
 using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
 using ADCSBDEMOS.Chapter_4;
+using ADCSBDEMOS.Chapter_5;
 
 namespace demos
 {
@@ -13,6 +14,7 @@ namespace demos
             Chapter2();
             Chapter3();
             Chapter4();
+            Chapter5();
             Console.ReadKey();
         }
 
@@ -40,7 +42,13 @@ namespace demos
 
         private static void Chapter4()
         {
-            new DynamicDemos().Run();
+            //new DynamicDemos().Run();
+        }
+
+        private static void Chapter5()
+        {
+            new TaskParallelLibraryDemos().Run();
+            //new Plinq().Run();
         }
     }
 }

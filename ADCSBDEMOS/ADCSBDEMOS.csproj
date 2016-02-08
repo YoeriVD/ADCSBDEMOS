@@ -62,6 +62,8 @@
     <Compile Include="Chapter 2\LinqDemos.cs" />
     <Compile Include="Chapter 2\Performance.cs" />
     <Compile Include="Chapter 4\DynamicDemos.cs" />
+    <Compile Include="Chapter 5\Plinq.cs" />
+    <Compile Include="Chapter 5\TaskParallelLibraryDemos.cs" />
     <Compile Include="Objects\Car.cs" />
     <Compile Include="Objects\IRepeater.cs" />
     <Compile Include="Objects\Person.cs" />
