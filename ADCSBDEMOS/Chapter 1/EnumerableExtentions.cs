@@ -8,7 +8,9 @@ namespace ADCSBDEMOS.Chapter_1
     {
         public static void Print<T>(this IEnumerable<T> list)
         {
-            list.ToList().ForEach(item => Console.WriteLine(item));
+            list
+                .ToList()
+                .ForEach(item => Console.WriteLine(item));
         }
     }
 }
