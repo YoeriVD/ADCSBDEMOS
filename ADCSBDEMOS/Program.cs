@@ -1,6 +1,7 @@
 ﻿using System;
 using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
+using ADCSBDEMOS.Chapter_4;
 
 namespace demos
 {
@@ -10,8 +11,8 @@ namespace demos
         {
             Chapter1();
             Chapter2();
-            2.Print();
-            true.Print();
+            Chapter3();
+            Chapter4();
             Console.ReadKey();
         }
 
@@ -31,6 +32,15 @@ namespace demos
         private static void Chapter2()
         {
             new LinqDemos().Run();
+        }
+
+        private static void Chapter3()
+        {
+        }
+
+        private static void Chapter4()
+        {
+            new DynamicDemos().Run();
         }
     }
 }
