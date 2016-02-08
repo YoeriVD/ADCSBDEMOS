@@ -1,4 +1,5 @@
-﻿using ADCSBDEMOS.Chapter_1;
+﻿using System.Collections.Generic;
+using ADCSBDEMOS.Chapter_1;
 
 namespace ADCSBDEMOS.Objects
 {
@@ -15,5 +16,12 @@ namespace ADCSBDEMOS.Objects
         }
 
         public string Name { get; set; }
+        public IEnumerable<Wheel> Wheels { get; set; }
+    }
+
+
+    public class Wheel
+    {
+        public int Depth { get; set; }
     }
 }

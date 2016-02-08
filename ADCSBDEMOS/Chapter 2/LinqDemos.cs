@@ -14,6 +14,7 @@ namespace ADCSBDEMOS.Chapter_2
         public void Run()
         {
             Demo();
+            //CooleQuery();
             //RunAndPrintExecutionTime(Demo);
             //GroupBy();
             //LetPerformance().Wait();
@@ -22,11 +23,35 @@ namespace ADCSBDEMOS.Chapter_2
 
         private void Demo()
         {
-            var cars = Data.Cars;
-
-            cars.Print();
+            
         }
-       
+
+        private static void CooleQuery()
+        {
+            var result =
+                from car in Data.Cars
+                let maxDepth = car.Wheels.Max(w => w.Depth)
+                let avDepth = Data.Cars.SelectMany(c => c.Wheels).Average(w => w.Depth)
+                where maxDepth > avDepth
+                orderby car.Make
+                select new
+                {
+                    car,
+                    wheels = car
+                        .Wheels
+                        .Aggregate("Wheels: ", (s, wheel) => s += ", " + wheel.Depth)
+                };
+
+            foreach (var item in result)
+            {
+                //Console.WriteLine(string.Format("Car: {0} - {1}", item.car.Make, item.wheels));
+                Console.WriteLine($"Car: {item.car.Make} - {item.car.Type}");
+                Console.WriteLine($"Wheels: {item.wheels}");
+            }
+            //result.Print();
+            //Console.WriteLine(result);
+        }
+
 
         private async Task LetPerformance()
         {
@@ -37,6 +62,7 @@ namespace ADCSBDEMOS.Chapter_2
             PrintResult("without", withoutTask.Result);
             PrintResult("with", withTask.Result);
         }
+
         private static IEnumerable<Car> PerformanceWithoutLet()
         {
             var cars = from car in Data.Cars
@@ -44,6 +70,7 @@ namespace ADCSBDEMOS.Chapter_2
                 select car;
             return cars.ToList();
         }
+
         private static IEnumerable<Car> PerformanceWithLet()
         {
             var cars = from car in Data.Cars
@@ -52,6 +79,7 @@ namespace ADCSBDEMOS.Chapter_2
                 select car;
             return cars.ToList();
         }
+
         private static void SlowSelect()
         {
             var cars = Data
@@ -68,6 +96,7 @@ namespace ADCSBDEMOS.Chapter_2
             var result = cars.ToList();
             result.Print();
         }
+
         private static void GroupBy()
         {
             var groups =
@@ -90,6 +119,7 @@ namespace ADCSBDEMOS.Chapter_2
         }
 
         #region helpers
+
         private static long ExecuteALot(Action action)
         {
             return MeasureExecutionTime(() =>
@@ -100,6 +130,7 @@ namespace ADCSBDEMOS.Chapter_2
                 }
             });
         }
+
         private static long MeasureExecutionTime(Action action)
         {
             var timer = new Stopwatch();
@@ -108,17 +139,20 @@ namespace ADCSBDEMOS.Chapter_2
             timer.Stop();
             return timer.ElapsedMilliseconds;
         }
+
         private void RunAndPrintExecutionTime(Action action)
         {
             var time = MeasureExecutionTime(action);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Execution time : {time} milliseconds");
         }
+
         private static void PrintResult(string withOrWithout, long time)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Execution time {withOrWithout} let: {time} milliseconds");
         }
+
         #endregion
     }
 }
