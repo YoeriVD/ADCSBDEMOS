@@ -10,7 +10,7 @@ namespace ADCSBDEMOS.Chapter_1
         {
             list
                 .ToList()
-                .ForEach(item => Console.WriteLine(item));
+                .ForEach(item => Console.WriteLine(item.ToString()));
         }
     }
 }
