@@ -47,8 +47,9 @@ namespace demos
 
         private static void Chapter5()
         {
-            new TaskParallelLibraryDemos().Run();
+            //new TaskParallelLibraryDemos().Run();
             //new Plinq().Run();
+
         }
     }
 }
