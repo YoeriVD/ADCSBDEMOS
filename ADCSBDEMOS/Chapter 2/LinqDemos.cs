@@ -23,6 +23,16 @@ namespace ADCSBDEMOS.Chapter_2
 
         private void Demo()
         {
+            var list = new IRepeater[]
+            {
+                new SomeGeneratedClass0(),
+                new SomeGeneratedClass1(),
+                new SomeGeneratedClass0(),
+                new SomeGeneratedClass3()
+            };
+
+            var result = list.OfType<SomeGeneratedClass3>().Count();
+            Console.WriteLine(result);
         }
 
         private static void CooleQuery()
