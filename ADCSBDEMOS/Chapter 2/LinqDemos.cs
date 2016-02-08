@@ -14,7 +14,7 @@ namespace ADCSBDEMOS.Chapter_2
         public void Run()
         {
             Demo();
-            //CooleQuery();
+            //RunAndPrintExecutionTime(CooleQuery);
             //RunAndPrintExecutionTime(Demo);
             //GroupBy();
             //LetPerformance().Wait();
@@ -23,7 +23,6 @@ namespace ADCSBDEMOS.Chapter_2
 
         private void Demo()
         {
-            
         }
 
         private static void CooleQuery()
@@ -51,7 +50,6 @@ namespace ADCSBDEMOS.Chapter_2
             //result.Print();
             //Console.WriteLine(result);
         }
-
 
         private async Task LetPerformance()
         {
