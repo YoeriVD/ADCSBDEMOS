@@ -1,4 +1,5 @@
 ﻿using System;
+using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
 
 namespace demos
@@ -9,7 +10,8 @@ namespace demos
         {
             Chapter1();
             Chapter2();
-
+            2.Print();
+            true.Print();
             Console.ReadKey();
         }
 

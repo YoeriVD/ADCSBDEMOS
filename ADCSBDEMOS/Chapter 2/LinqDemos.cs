@@ -18,7 +18,7 @@ namespace ADCSBDEMOS.Chapter_2
             //RunAndPrintExecutionTime(Demo);
             //GroupBy();
             //LetPerformance().Wait();
-            SlowSelect();
+            //SlowSelect();
         }
 
         private void Demo()
@@ -32,7 +32,7 @@ namespace ADCSBDEMOS.Chapter_2
             };
 
             var result = list.OfType<SomeGeneratedClass3>().Count();
-            Console.WriteLine(result);
+            result.Print();
         }
 
         private static void CooleQuery()

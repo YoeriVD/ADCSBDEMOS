@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chapter 1\AnonymousTypes.cs" />
-    <Compile Include="Chapter 1\EnumerableExtentions.cs" />
+    <Compile Include="Chapter 1\PrintExtentions.cs" />
     <Compile Include="Chapter 1\ExtensionMethods.cs" />
     <Compile Include="Chapter 1\ICanShout.cs" />
     <Compile Include="Chapter 1\Initializers.cs" />
