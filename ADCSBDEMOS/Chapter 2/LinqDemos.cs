@@ -11,6 +11,7 @@ namespace ADCSBDEMOS.Chapter_2
 {
     internal class LinqDemos
     {
+
         public void Run()
         {
             //Demo();
@@ -63,12 +64,12 @@ namespace ADCSBDEMOS.Chapter_2
 
         private async Task LetPerformance()
         {
-            var withoutTask = Task.Run(() => ExecuteALot(() => PerformanceWithoutLet()));
-            var withTask = Task.Run(() => ExecuteALot(() => PerformanceWithLet()));
+            var withoutTask = Task.Run(() => Performance.ExecuteALot(() => PerformanceWithoutLet()));
+            var withTask = Task.Run(() => Performance.ExecuteALot(() => PerformanceWithLet()));
 
             await Task.WhenAll(withTask, withoutTask);
-            PrintResult("without", withoutTask.Result);
-            PrintResult("with", withTask.Result);
+            Performance.PrintResult("without", withoutTask.Result);
+            Performance.PrintResult("with", withTask.Result);
         }
 
         private static IEnumerable<Car> PerformanceWithoutLet()
@@ -126,42 +127,5 @@ namespace ADCSBDEMOS.Chapter_2
             var keys = groups.Select(g => g.Key);
             keys.Print();
         }
-
-        #region helpers
-
-        private static long ExecuteALot(Action action)
-        {
-            return MeasureExecutionTime(() =>
-            {
-                for (var i = 0; i < 1000; i++)
-                {
-                    action();
-                }
-            });
-        }
-
-        private static long MeasureExecutionTime(Action action)
-        {
-            var timer = new Stopwatch();
-            timer.Start();
-            action();
-            timer.Stop();
-            return timer.ElapsedMilliseconds;
-        }
-
-        private void RunAndPrintExecutionTime(Action action)
-        {
-            var time = MeasureExecutionTime(action);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Execution time : {time} milliseconds");
-        }
-
-        private static void PrintResult(string withOrWithout, long time)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Execution time {withOrWithout} let: {time} milliseconds");
-        }
-
-        #endregion
     }
 }
