@@ -8,7 +8,7 @@ namespace ADCSBDEMOS.Chapter_1
         public void Run()
         {
             var person = new Person {Age = 33};
-            //Person person = new Person {Age = 33};
+            //Person person = new Person {Age = 34};
             Console.WriteLine(person);
             Console.WriteLine(person.GetType());
 
