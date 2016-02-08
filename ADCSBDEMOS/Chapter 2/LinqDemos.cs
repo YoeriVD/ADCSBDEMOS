@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +10,6 @@ namespace ADCSBDEMOS.Chapter_2
 {
     internal class LinqDemos
     {
-
         public void Run()
         {
             //Demo();
