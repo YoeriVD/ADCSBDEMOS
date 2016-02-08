@@ -13,12 +13,12 @@ namespace ADCSBDEMOS.Chapter_2
     {
         public void Run()
         {
-            Demo();
+            //Demo();
             //RunAndPrintExecutionTime(CooleQuery);
             //RunAndPrintExecutionTime(Demo);
             //GroupBy();
             //LetPerformance().Wait();
-            //SlowSelect();
+            SlowSelect();
         }
 
         private void Demo()
@@ -94,6 +94,7 @@ namespace ADCSBDEMOS.Chapter_2
                 .Cars
                 .Where(car => car.Mileage > 100000)
                 .Where(car => !string.IsNullOrEmpty(car.Make) && car.Make.Contains("a"))
+                //.AsParallel()
                 .Select((car, index) =>
                 {
                     Thread.Sleep(new Random().Next(100, 2000));
