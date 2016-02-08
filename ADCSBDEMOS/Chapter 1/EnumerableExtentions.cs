@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ADCSBDEMOS.Chapter_1
 {
@@ -7,10 +8,7 @@ namespace ADCSBDEMOS.Chapter_1
     {
         public static void Print<T>(this IEnumerable<T> list)
         {
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            list.ToList().ForEach(item => Console.WriteLine(item));
         }
     }
 }
