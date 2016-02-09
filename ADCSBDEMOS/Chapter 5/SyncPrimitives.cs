@@ -11,7 +11,7 @@ namespace ADCSBDEMOS.Chapter_5
     {
         public void Run()
         {
-//            Barrier();
+            Barrier();
 //            CountDownEvent();
             
         }
@@ -19,12 +19,16 @@ namespace ADCSBDEMOS.Chapter_5
         public void Barrier()
         {
             var range = Enumerable.Range(0, 10).ToList();
-            var barrier = new Barrier(range.Count);
+            var barrier = new Barrier(range.Count + 1);
             Parallel.ForEach(range, i =>
             {
-                Console.Write(i + " ");
-                barrier.SignalAndWait();
+                Task.Run(() =>
+                {
+                    Console.Write(i + " ");
+                    barrier.SignalAndWait();
+                });
             });
+            barrier.SignalAndWait();
             Console.WriteLine("done");
         }
 

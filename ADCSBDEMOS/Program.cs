@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Net.Http.Headers;
 using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
@@ -13,12 +15,20 @@ namespace demos
     {
         private static void Main(string[] args)
         {
-            Chapter1();
-            Chapter2();
-            Chapter3();
-            Chapter4();
-            Chapter5();
-            Console.ReadKey();
+            try
+            {
+                Chapter1();
+                Chapter2();
+                Chapter3();
+                Chapter4();
+                Chapter5();
+
+                Console.ReadKey();
+            }
+            catch (Exception e)
+            {
+                //write to log or show message
+            }
         }
         private static void Chapter1()
         {
@@ -43,14 +53,14 @@ namespace demos
         }
         private static void Chapter4()
         {
-            new DynamicDemos().Run();
+            //new DynamicDemos().Run();
         }
         private static void Chapter5()
         {
             //new TaskParallelLibraryDemos().Run();
             //new Plinq().Run();
             //new ConcurrentDataClasses().Run();
-            //new SyncPrimitives().Run();
+            new SyncPrimitives().Run();
         }
     }
 }

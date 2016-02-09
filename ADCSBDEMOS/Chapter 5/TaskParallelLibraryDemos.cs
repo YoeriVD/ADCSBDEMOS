@@ -1,51 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ADCSBDEMOS.Chapter_5
 {
-    class TaskParallelLibraryDemos
+    internal class TaskParallelLibraryDemos
     {
+        public event EventHandler SomeEvent;
+
         public void Run()
         {
-            //Parallel();
+            //ParallelDemo();
             Tasks();
+            
             Console.WriteLine("DONE!");
         }
 
-        private void Parallel()
+       
+
+        private void ParallelDemo()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
-                DoWork(i);
+                //                DoWork(i);
             }
 
-            System.Threading.Tasks.Parallel.For(0, 10, (i, state) =>
+            var range = new List<string>
             {
-                //DoWork(i);
-            });
+                "test",
+                "tfgsdfgt",
+                "tfgsdfgdsfgft",
+                "testfgsdfgsdgdsfgd"
+            };
+
+            Parallel.ForEach(range, (current, loopState) => { DoWork(current); });
         }
+
 
         private void Tasks()
         {
             var listOfTasks = new List<Task>();
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var count = i;
-                var t = new Task(() => DoWork(count));
+
+                var source = new CancellationTokenSource();
+                var t = Task.Run(() => DoWork(count.ToString()), source.Token);
+
+                t.ContinueWith(previousTask =>
+                {
+                    if (!previousTask.IsCanceled && previousTask.IsCompleted)
+                    {
+                        Console.WriteLine(previousTask.Result);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"c: {previousTask.IsCanceled}, f: {previousTask.IsFaulted}");
+                    }
+                    throw new Exception();
+                }, source.Token)
+                    .ContinueWith(
+                    task => Console.WriteLine("faulted: " + task.IsFaulted),
+                    source.Token);
+
                 listOfTasks.Add(t);
-                t.Start();
+
+                source.Cancel();
             }
-            Task.WaitAll(listOfTasks.ToArray());
+            try
+            {
+                Task.WaitAll(listOfTasks.ToArray());
+            }
+            catch (AggregateException ae)
+            {
+                Console.WriteLine(ae.InnerException.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException.Message);
+            }
         }
 
-        public void DoWork(int i)
+        private string DoWork(string i)
         {
             Thread.Sleep(new Random().Next(200, 2000));
             Console.WriteLine(i + " is ready");
+            return i + "from task 1";
         }
     }
 }

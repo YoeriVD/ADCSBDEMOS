@@ -32,6 +32,20 @@ namespace ADCSBDEMOS.Chapter_2
 
             var result = list.OfType<SomeGeneratedClass3>().Count();
             result.Print();
+
+            var data = Data.Cars.ToList();
+            var data2 = Data.Cars.ToList();
+            Console.WriteLine(data.Equals(data2));
+
+            var r = data.Zip(data2, (left, right) =>
+            {
+                if (!left.Equals(right))
+                {
+                    return left.ToString() + " " + right.ToString();
+                }
+                else return "same";
+            });
+            r.Print();
         }
 
         private static void CooleQuery()
