@@ -80,7 +80,6 @@ namespace Lab4Solution
             et.Ready += (sender, args) =>
             {
                 tcs.SetResult(null);
-                tcs.
             };
             et.Run(milleseconds);
             return tcs.Task;
