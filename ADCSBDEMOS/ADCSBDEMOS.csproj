@@ -61,6 +61,7 @@
     <Compile Include="Chapter 2\Data.cs" />
     <Compile Include="Chapter 2\LinqDemos.cs" />
     <Compile Include="Chapter 2\Performance.cs" />
+    <Compile Include="Chapter 3\Parameters.cs" />
     <Compile Include="Chapter 4\DynamicDemos.cs" />
     <Compile Include="Chapter 5\ConcurrentDataClasses.cs" />
     <Compile Include="Chapter 5\Plinq.cs" />
@@ -78,9 +79,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Chapter 3\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Chapter 1\types.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
