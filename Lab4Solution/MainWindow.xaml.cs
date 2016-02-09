@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,20 +23,27 @@ namespace Lab4Solution
             _dispatcher = Dispatcher;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             //            var task = DoWait();
             //            await task;
             //            Label.Content = "Hey! " + ++count;
-            _cts = ExceptionDemo();
+//            var result = await DoWait();
+//
+//            await ExceptionDemo();
+
+            Label.Content = "starting timer";
+            await DoTimer(500);
+            Label.Content = "Timer ready!";
+
         }
 
-        private CancellationTokenSource ExceptionDemo()
+        private async Task ExceptionDemo()
         {
-            var cts = new CancellationTokenSource();
-            var token = cts.Token;
+            _cts = new CancellationTokenSource();
+            var token = _cts.Token;
             Label.Content = "running ...";
-            var t = Task.Run(() =>
+            var task = Task.Run(() =>
             {
                 while (true)
                 {
@@ -44,27 +52,38 @@ namespace Lab4Solution
                     Thread.Sleep(500);
                     _dispatcher.Invoke(() => { Label.Content += "."; });
                 }
-            }, token)
-            .ContinueWith(task =>
-            {
-                _dispatcher.Invoke(() =>
-                {
-                    Label.Content += $"stopped f:{task.IsFaulted} ca:{task.IsCanceled} com:{task.IsCompleted}";
-                });
-            });
-            return cts;
+            }, token);
+            await task;
+            Label.Content += $"stopped f:{task.IsFaulted} ca:{task.IsCanceled} com:{task.IsCompleted}";
+
         }
 
 
-        private Task DoWait()
+        private Task<string> DoWait()
         {
-            return Task.Run(() => { Thread.Sleep(1000); });
+            return Task.Run(() =>
+            {
+                Thread.Sleep(1000);
+                return "ready!";
+            });
         }
 
         private void Stop(object sender, RoutedEventArgs e)
         {
             _cts.Cancel();
-            throw new Exception("oepsie!");
+        }
+
+        private Task DoTimer(int milleseconds)
+        {
+            var et = new EventTrigger();
+            var tcs = new TaskCompletionSource<object>();
+            et.Ready += (sender, args) =>
+            {
+                tcs.SetResult(null);
+                tcs.
+            };
+            et.Run(milleseconds);
+            return tcs.Task;
         }
     }
 }

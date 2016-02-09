@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 
 namespace Lab4Solution
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
@@ -20,6 +16,11 @@ namespace Lab4Solution
             MessageBox.Show(message, "error", MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
             //navigate to main menu
+            File.AppendAllLines("log.txt", new[]
+            {
+                message, e.Exception?.StackTrace
+            });
+            EventLog.WriteEntry("DEMO", message);
         }
     }
 }

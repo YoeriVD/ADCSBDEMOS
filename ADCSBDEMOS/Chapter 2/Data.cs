@@ -14,6 +14,7 @@ namespace ADCSBDEMOS.Chapter_2
             get
             {
                 var random = new Random();
+                Console.WriteLine("creating car list");
                 for (var i = 0; i < 300; i++)
                     yield return
                         new Car
