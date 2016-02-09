@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using ADCSBDEMOS.Chapter_1;
 using ADCSBDEMOS.Chapter_2;
 using ADCSBDEMOS.Chapter_3;
 using ADCSBDEMOS.Chapter_4;
 using ADCSBDEMOS.Chapter_5;
+using ADCSBDEMOS.Objects;
 
 namespace demos
 {
@@ -36,11 +38,12 @@ namespace demos
         }
         private static void Chapter3()
         {
-            new Parameters().Run();
+            //new Parameters().Run();
+
         }
         private static void Chapter4()
         {
-            //new DynamicDemos().Run();
+            new DynamicDemos().Run();
         }
         private static void Chapter5()
         {

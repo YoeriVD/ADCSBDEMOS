@@ -23,11 +23,16 @@ namespace ADCSBDEMOS.Chapter_4
 
             Console.WriteLine();
             dynamic str = "hey";
-            A a = new B();
-            a.SomeMethod(str);
+            //A a = new B();
+            //a.SomeMethod(str);
+
+            var list = new List<A> {new A(),new B()};
+            list.ForEach(a => a.SomeMethod(str));
+            
 
             var c = new C();
-            c.SomeMethod(str);
+            var result = c.SomeMethod(str);
+            Console.WriteLine(result);
         }
     }
 
@@ -47,15 +52,15 @@ namespace ADCSBDEMOS.Chapter_4
         }
     }
 
-    class C
+    public class C
     {
-        public void SomeMethod(dynamic c)
+        public string SomeMethod(dynamic c)
         {
-            Console.WriteLine("dynamic: " + c);
+            return "dynamic: " + c;
         }
-        public void SomeMethod(string c)
+        public string SomeMethod(string c)
         {
-            Console.WriteLine("string: " + c);
+            return "string: " + c;
         }
     }
 }
